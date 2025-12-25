@@ -57,4 +57,18 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+  gem "rubocop", require: false
+  gem "rubocop-capybara", require: false
+  gem "rubocop-factory_bot", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rspec", require: false
+  gem "rubocop-rspec_rails", require: false
+end
+
+group :test do
+  # one liners for common tests
+  gem "capybara", "~> 3.40"
+  gem "selenium-webdriver"
+  gem "shoulda-matchers", "~> 6.0"
+  gem "factory_bot_rails", "~> 6.5"
 end
