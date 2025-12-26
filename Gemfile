@@ -52,6 +52,9 @@ group :development, :test do
 
   # testing framework
   gem "rspec-rails"
+
+  # in development will generate factories instead of fixtures in generators
+  gem "factory_bot_rails", "~> 6.5"
 end
 
 group :development do
@@ -70,5 +73,4 @@ group :test do
   gem "capybara", "~> 3.40"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 6.0"
-  gem "factory_bot_rails", "~> 6.5"
 end
