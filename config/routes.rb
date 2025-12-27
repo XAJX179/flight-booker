@@ -11,4 +11,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  # TODO: search and view on same page. Set up your FlightsController and
+  # routes to make the Index page (/flights) the root route.
+  # Create your search form on the /flights index page to submit
+  # using a GET (not POST) request back to the same URL.
 end
