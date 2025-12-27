@@ -23,5 +23,11 @@ RSpec.describe Flight, type: :model do
     it { is_expected.to be_valid }
   end
 
-  # TODO: write association tests
+  describe 'has departure airport' do
+    it { is_expected.to belong_to(:departure_airport) }
+  end
+
+  describe 'has arrival airport' do
+    it { is_expected.to belong_to(:arrival_airport) }
+  end
 end

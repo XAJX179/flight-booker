@@ -23,5 +23,11 @@ RSpec.describe Airport, type: :model do
     it { is_expected.to validate_length_of(:name).is_at_least(10) }
   end
 
-  # TODO: write association tests
+  describe 'has departing flight' do
+    it { is_expected.to have_many(:departing_flights) }
+  end
+
+  describe 'has arriving flight' do
+    it { is_expected.to have_many(:arriving_flights) }
+  end
 end
