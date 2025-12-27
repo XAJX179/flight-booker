@@ -22,4 +22,6 @@ RSpec.describe Airport, type: :model do
   describe 'name is long' do
     it { is_expected.to validate_length_of(:name).is_at_least(10) }
   end
+
+  # TODO: write association tests
 end

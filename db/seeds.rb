@@ -21,3 +21,7 @@
 ].each do |airport|
   Airport.find_or_create_by!(name: airport[:name], code: airport[:code])
 end if Rails.env.development?
+
+# TODO: create flights
+[].each do |flight|
+end if Rails.env.development?
