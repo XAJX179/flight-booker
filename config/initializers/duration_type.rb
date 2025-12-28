@@ -6,7 +6,9 @@ class DurationType < ActiveRecord::Type::String
   end
 
   def serialize(duration)
-    duration ? duration.iso8601 : nil
+    if duration.class == ActiveSupport::Duration
+      duration.iso8601
+    end
   end
 end
 

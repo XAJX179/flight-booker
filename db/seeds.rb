@@ -29,7 +29,7 @@ if Rails.env.development?
   data = []
 
   10.times do |n|
-    data << { start_time: "2025-12-27 18:23:02.263913", duration: "03:00:00", departure_airport: first_id+n, arrival_airport: last_id-n }
+    data << { start_time: "2025-12-27 18:23:02.263913", duration: "PT2H30M0S", departure_airport: first_id+n, arrival_airport: last_id-n }
   end
 
   data.each do |attr|

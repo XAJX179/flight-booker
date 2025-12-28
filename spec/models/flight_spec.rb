@@ -11,10 +11,6 @@ RSpec.describe Flight, type: :model do
     it { is_expected.to have_db_column(:duration).of_type(:string) }
   end
 
-  describe 'duration lenght is 7..8' do
-    it { is_expected.to validate_length_of(:duration).is_at_least(7).is_at_most(8) }
-  end
-
   describe 'has departure_airport_id' do
     it { is_expected.to have_db_column(:departure_airport_id).of_type(:integer) }
   end
