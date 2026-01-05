@@ -25,7 +25,7 @@
                                .select(:start_time)
                                .uniq { |f| f.start_time.to_date },
                              :start_time,
-                             :start_time %>
+                             lambda { |f| format_to_date(f.start_time) } %>
     </div>
     <%= form.submit "Search" %>
   <% end %>
