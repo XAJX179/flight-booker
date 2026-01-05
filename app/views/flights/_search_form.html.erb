@@ -1,0 +1,32 @@
+<search>
+  <%= form_with url: "/flights", method: :get do |form| %>
+
+    <div>
+
+      <%= form.label :departure_airport, "Departure Airport" %>
+      <%= form.collection_select :departure_airport, Airport.all, :id, :name %>
+
+      <%= form.label :arrival_airport, "Arrival Airport:" %>
+      <%= form.collection_select :arrival_airport, Airport.all, :id, :name %>
+
+    </div>
+    <div>
+
+      <%= form.label :no_of_passengers, "No. of passengers:" %>
+      <%= form.select :no_of_passengers, (1..4).to_a %>
+
+    </div>
+    <div>
+
+      <%= form.label :start_time, "Date:" %>
+      <%= form.collection_select :start_time,
+                             Flight
+                               .all
+                               .select(:start_time)
+                               .uniq { |f| f.start_time.to_date },
+                             :start_time,
+                             :start_time %>
+    </div>
+    <%= form.submit "Search" %>
+  <% end %>
+</search>

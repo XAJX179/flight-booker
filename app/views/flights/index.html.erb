@@ -1,0 +1,11 @@
+<h1>Flights</h1>
+
+<%= render "search_form" %>
+
+<% if @flights %>
+
+  <% @flights.each do |flight| %>
+    <%= render partial: "show", locals: { flight: flight } %>
+  <% end %>
+
+<% end %>
