@@ -72,6 +72,6 @@ group :test do
   # one liners for common tests
   gem "capybara", "~> 3.40"
   gem "selenium-webdriver"
-  gem "shoulda-matchers", "~> 6.0"
+  gem "shoulda-matchers", "~> 7.0"
   gem "rails-controller-testing"
 end
