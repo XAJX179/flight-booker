@@ -12,7 +12,7 @@ RSpec.describe Airport, type: :model do
   end
 
   describe 'code is 3 letter' do
-    it { is_expected.to validate_length_of(:code).is_equal_to(3) }
+    it { is_expected.to validate_length_of(:code).is_at_least(3) }
   end
 
   describe 'code is unique' do

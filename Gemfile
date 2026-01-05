@@ -73,4 +73,5 @@ group :test do
   gem "capybara", "~> 3.40"
   gem "selenium-webdriver"
   gem "shoulda-matchers", "~> 6.0"
+  gem "rails-controller-testing"
 end

@@ -30,4 +30,16 @@ RSpec.describe Flight, type: :model do
   describe 'has arrival airport' do
     it { is_expected.to belong_to(:arrival_airport) }
   end
+
+  describe 'has find_by_params' do
+    it 'is expected to find flights by given params' do
+      flight =  create(:flight)
+
+      params = { departure_airport: flight.departure_airport.id,
+                 arrival_airport: flight.arrival_airport.id,
+                 start_time: flight.start_time.to_date }
+
+      expect(described_class.find_by_params(params).first).to eq(flight)
+    end
+  end
 end
