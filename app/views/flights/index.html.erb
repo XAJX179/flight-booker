@@ -4,8 +4,22 @@
 
 <% if @flights %>
 
-  <% @flights.each do |flight| %>
-    <%= render partial: "show", locals: { flight: flight } %>
+  <% unless @flights.empty? %>
+    <p>
+      flights for
+      <%= @no_of_passengers %>
+      passengers:
+    </p>
+
+    <form action="/bookings/new" method="get">
+      <% @flights.each do |flight| %>
+        <%= render partial: "show", locals: { flight: flight } %>
+      <% end %>
+
+      <%= hidden_field_tag "booking[no_of_passengers]", @no_of_passengers %>
+
+      <input type="submit" name="commit" value="Select">
+    </form>
   <% end %>
 
 <% end %>
