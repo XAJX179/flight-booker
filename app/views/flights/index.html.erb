@@ -13,7 +13,7 @@
 
     <%= form_with model: Booking.new, url: bookings_new_path, method: :get do |form| %>
       <% @flights.each do |flight| %>
-        <%= render partial: "show",
+        <%= render partial: "results",
         locals: {
           flight_id: flight.id,
           departure_airport: flight.departure_airport,

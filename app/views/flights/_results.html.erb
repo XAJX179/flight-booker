@@ -1,0 +1,15 @@
+<div class="flight-details">
+  <%= form.radio_button :flight_id, flight_id %>
+
+  <label for=<%= "booking_flight_id_#{flight_id}" %>>
+    <%= render partial: "info",
+    locals: {
+      flight_id: flight_id,
+      departure_airport: departure_airport,
+      arrival_airport: arrival_airport,
+      duration: duration,
+      start_time: start_time,
+      form: form,
+    } %>
+  </label>
+</div>

@@ -1,0 +1,27 @@
+<span>
+  <span>
+    <%= departure_airport.name %>
+    (
+    <%= departure_airport.code %>
+    )
+  </span>
+  <span>
+    To ==>
+  </span>
+  <span>
+    <%= arrival_airport.name %>
+    (
+    <%= arrival_airport.code %>
+    )
+  </span>
+</span>
+<br>
+<span>
+  <%= duration.inspect %>
+</span>
+<br>
+<span>
+  <%= format_to_date(start_time) %>
+  -
+  <%= format_to_time(start_time) %>
+</span>

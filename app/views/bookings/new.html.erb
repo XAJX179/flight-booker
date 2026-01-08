@@ -1,8 +1,19 @@
 <h1>Bookings#new</h1>
 
-<p>flight id:
-  <%= @flight_id %>
+<p>
+  Flight info:
+  <div class="flight-details">
+    <%= render partial: "flights/info",
+    locals: {
+      flight_id: @flight.id,
+      departure_airport: @flight.departure_airport,
+      arrival_airport: @flight.arrival_airport,
+      duration: @flight.duration,
+      start_time: @flight.start_time,
+    } %>
+  </div>
 </p>
-<p>no of passengers:
+<p>
+  no of passengers:
   <%= @no_of_passengers %>
 </p>

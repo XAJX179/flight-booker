@@ -1,7 +1,8 @@
 class BookingsController < ApplicationController
   def new
     if params_present?
-      @flight_id = bookings_params[:flight_id]
+      flight_id = bookings_params[:flight_id]
+      @flight = Flight.find(flight_id)
       @no_of_passengers = bookings_params[:no_of_passengers]
     else
       flash[:alert] = "Please select a flight!"
