@@ -17,7 +17,7 @@ RSpec.describe "Flights", type: :request do
       params = { "flight" => { "departure_airport"=>flight.departure_airport.id, "arrival_airport"=>flight.arrival_airport.id,
                 "no_of_passengers"=>"1", "start_time"=>flight.start_time, "commit"=>"Search" } }
       get "/flights/index", params: params
-      expect(response).to render_template(partial: "_show")
+      expect(response).to render_template(partial: "_results")
     end
   end
 end
