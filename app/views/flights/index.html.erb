@@ -11,15 +11,15 @@
       passengers:
     </p>
 
-    <form action="/bookings/new" method="get">
+    <%= form_with model: Booking.new, url: bookings_new_path, method: :get do |form| %>
       <% @flights.each do |flight| %>
-        <%= render partial: "show", locals: { flight: flight } %>
+        <%= render partial: "show", locals: { flight: flight, form: form } %>
       <% end %>
 
-      <%= hidden_field_tag "booking[no_of_passengers]", @no_of_passengers %>
+      <%= form.hidden_field :no_of_passengers, value: @no_of_passengers %>
 
       <input type="submit" name="commit" value="Select">
-    </form>
+    <% end %>
   <% end %>
 
 <% end %>

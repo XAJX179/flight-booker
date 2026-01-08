@@ -1,5 +1,5 @@
 <div class="flight-details">
-  <%= radio_button_tag("booking[flight_id]", flight.id) %>
+  <%= form.radio_button :flight_id, flight.id %>
 
   <label for=<%= "booking_flight_id_#{flight.id}" %>>
     <span>
