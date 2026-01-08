@@ -13,7 +13,15 @@
 
     <%= form_with model: Booking.new, url: bookings_new_path, method: :get do |form| %>
       <% @flights.each do |flight| %>
-        <%= render partial: "show", locals: { flight: flight, form: form } %>
+        <%= render partial: "show",
+        locals: {
+          flight_id: flight.id,
+          departure_airport: flight.departure_airport,
+          arrival_airport: flight.arrival_airport,
+          duration: flight.duration,
+          start_time: flight.start_time,
+          form: form,
+        } %>
       <% end %>
 
       <%= form.hidden_field :no_of_passengers, value: @no_of_passengers %>

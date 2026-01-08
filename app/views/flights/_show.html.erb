@@ -1,33 +1,33 @@
 <div class="flight-details">
-  <%= form.radio_button :flight_id, flight.id %>
+  <%= form.radio_button :flight_id, flight_id %>
 
-  <label for=<%= "booking_flight_id_#{flight.id}" %>>
+  <label for=<%= "booking_flight_id_#{flight_id}" %>>
     <span>
       <span>
-        <%= flight.departure_airport.name %>
+        <%= departure_airport.name %>
         (
-        <%= flight.departure_airport.code %>
+        <%= departure_airport.code %>
         )
       </span>
       <span>
         To ==>
       </span>
       <span>
-        <%= flight.arrival_airport.name %>
+        <%= arrival_airport.name %>
         (
-        <%= flight.arrival_airport.code %>
+        <%= arrival_airport.code %>
         )
       </span>
     </span>
     <br>
     <span>
-      <%= flight.duration.inspect %>
+      <%= duration.inspect %>
     </span>
     <br>
     <span>
-      <%= format_to_date(flight.start_time) %>
+      <%= format_to_date(start_time) %>
       -
-      <%= format_to_time(flight.start_time) %>
+      <%= format_to_time(start_time) %>
     </span>
   </label>
 </div>
