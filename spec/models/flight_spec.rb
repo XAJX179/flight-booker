@@ -42,4 +42,12 @@ RSpec.describe Flight, type: :model do
       expect(described_class.find_by_params(params).first).to eq(flight)
     end
   end
+
+  describe 'has many bookings' do
+    it { is_expected.to have_many(:bookings).dependent(:destroy) }
+  end
+
+  describe 'has many passengers through bookings' do
+    it { is_expected.to have_many(:passengers).through(:bookings) }
+  end
 end
