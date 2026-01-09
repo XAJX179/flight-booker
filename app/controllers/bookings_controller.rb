@@ -26,7 +26,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.build(bookings_params)
     if @booking.save
-      flash.now[:info] = "Booked!"
+      flash[:notice] = "Booked!"
       redirect_to booking_path(@booking)
     else
       flash[:alert] = "Invalid details. Could not book flight!"
