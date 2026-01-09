@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root "flights#index"
-  get "flights/index"
-  get "/flights" => "flights#index"
-  get "bookings/new"
-  get "bookings/:booking_id" => "bookings#show", as: :booking
-  post "bookings" => "bookings#create"
+  scope "/flight-booker" do
+    root "flights#index"
+    get "flights/index"
+    get "/flights" => "flights#index"
+    get "bookings/new"
+    get "bookings/:booking_id" => "bookings#show", as: :booking
+    post "bookings" => "bookings#create"
+  end
 
   # TODO: search and view on same page. Set up your FlightsController and
   # routes to make the Index page (/flights) the root route.
