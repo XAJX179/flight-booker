@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get "flights/index"
   get "/flights" => "flights#index"
   get "bookings/new"
+  get "bookings/:booking_id" => "bookings#show", as: :booking
+  post "bookings" => "bookings#create"
 
   # TODO: search and view on same page. Set up your FlightsController and
   # routes to make the Index page (/flights) the root route.

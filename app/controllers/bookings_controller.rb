@@ -13,10 +13,31 @@ class BookingsController < ApplicationController
         flash[:alert] =  "Invalid flight??? Try again."
         redirect_to "/flights/index"
       end
+      @passengers = []
+      @no_of_passengers.to_i.times do
+        @passengers << Passenger.new
+      end
     else
       flash[:alert] = "Please select a flight!"
       redirect_to "/flights/index"
     end
+  end
+
+  def create
+    @booking = Booking.build(bookings_params)
+    if @booking.save
+      flash.now[:info] = "Booked!"
+      redirect_to booking_path(@booking)
+    else
+      flash[:alert] = "Invalid details. Could not book flight!"
+      redirect_to "/flights/index"
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:booking_id])
+    @passengers = @booking.passengers
+    @flight = @booking.flight
   end
 
   def params_present?
@@ -26,6 +47,8 @@ class BookingsController < ApplicationController
   end
 
   def bookings_params
-    params.expect(booking: [ :flight_id, :no_of_passengers ])
+    params.expect(booking: [ :flight_id, :no_of_passengers,
+                             passengers_attributes: [ [ :name, :email ] ]
+    ])
   end
 end

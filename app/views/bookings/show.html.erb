@@ -1,0 +1,40 @@
+<h1>Bookings#show</h1>
+
+<%= button_to "Home", :flights_index, method: :get %>
+<h2>
+  Booking ID:
+  <%= @booking.id %>
+</h2>
+<p>
+  Flight no.
+  <%= @flight.id %>
+  info:
+  <div class="flight-details">
+    <%= render partial: "flights/info",
+    locals: {
+      flight_id: @flight.id,
+      departure_airport: @flight.departure_airport,
+      arrival_airport: @flight.arrival_airport,
+      duration: @flight.duration,
+      start_time: @flight.start_time,
+    } %>
+  </div>
+</p>
+
+<% @passengers.each_with_index do |passenger, index| %>
+  <p>
+    Passenger No.
+    <%= index + 1 %>
+    Info:
+  </p>
+  <div class="passenger-details">
+    <p>
+      Name :
+      <%= passenger.name %>
+    </p>
+    <p>
+      Email :
+      <%= passenger.email %>
+    </p>
+  </div>
+<% end %>

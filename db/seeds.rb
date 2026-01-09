@@ -28,13 +28,21 @@ if Rails.env.development?
 
   data = []
 
+  9.times do |n|
+    data << { start_time: "2026-12-25 10:23:02", duration: "PT2H30M0S", departure_airport: first_id, arrival_airport: last_id-n }
+  end
+
+  9.times do |n|
+    data << { start_time: "2026-12-25 05:23:02", duration: "PT2H30M0S", departure_airport: first_id, arrival_airport: last_id-n }
+  end
+
   10.times do |n|
     data << { start_time: "2026-12-27 18:23:02", duration: "PT2H30M0S", departure_airport: first_id+n, arrival_airport: last_id-n }
   end
 
-  data.first[:start_time] = "2026-12-27 20:23:02"
-  data.last[:start_time] = "2026-12-28 18:23:02"
-  data << { start_time: "2026-12-27 18:23:02", duration: "PT2H30M0S", departure_airport: data.first[:departure_airport], arrival_airport: data.first[:arrival_airport]  }
+  10.times do |n|
+    data << { start_time: "2026-12-27 06:20:02", duration: "PT2H30M0S", departure_airport: last_id-n, arrival_airport: first_id+n }
+  end
 
   data.each do |attr|
     Flight.find_or_create_by!(start_time: attr[:start_time],

@@ -15,3 +15,23 @@
     } %>
   </div>
 </p>
+
+<%= form_with model: Booking.new, method: :post do |form| %>
+  <%= form.fields_for :passengers, @passengers do |passenger_field| %>
+    <div>
+      <br>
+      Passenger
+      <%= passenger_field.index + 1 %>
+      info :
+      <br>
+      <%= passenger_field.label :name, "Name : " %>
+      <%= passenger_field.text_field :name %>
+      <%= passenger_field.label :email, "Email : " %>
+      <%= passenger_field.text_field :email %>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :flight_id, value: @flight.id %>
+
+  <input type="submit" name="commit" value="Book">
+<% end %>
