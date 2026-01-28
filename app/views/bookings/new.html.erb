@@ -16,22 +16,7 @@
   </div>
 </p>
 
-<%= form_with model: Booking.new, data: {controller: 'booking', booking_passenger_index_value: @passengers.size }, method: :post do |form| %>
-
-  <%= form.fields_for :passengers, @passengers do |passenger_field| %>
-    <div>
-      <br>
-      Passenger
-      <%= passenger_field.index + 1 %>
-      info :
-      <br>
-      <%= passenger_field.label :name, "Name : " %>
-      <%= passenger_field.text_field :name %>
-      <%= passenger_field.label :email, "Email : " %>
-      <%= passenger_field.text_field :email %>
-    </div>
-  <% end %>
-
+<%= form_with model: Booking.new, data: {controller: 'booking', booking_target: "form", booking_passenger_index_value: @passengers.size - 1 }, method: :post do |form| %>
   <template data-booking-target="template">
     <%= form.fields_for :passengers, Passenger.new, child_index: @passengers.size - 1 do |passenger_field| %>
       <div>
@@ -44,9 +29,35 @@
         <%= passenger_field.text_field :name %>
         <%= passenger_field.label :email, "Email : " %>
         <%= passenger_field.text_field :email %>
+        <%= content_tag :span,
+        "Remove",
+        data: {
+          action: "click->booking#removePassenger",
+          booking_passenger_index_param: passenger_field.index,
+        } %>
       </div>
     <% end %>
   </template>
+
+  <%= form.fields_for :passengers, @passengers do |passenger_field| %>
+    <div>
+      <br>
+      Passenger
+      <%= passenger_field.index + 1 %>
+      info :
+      <br>
+      <%= passenger_field.label :name, "Name : " %>
+      <%= passenger_field.text_field :name %>
+      <%= passenger_field.label :email, "Email : " %>
+      <%= passenger_field.text_field :email %>
+      <%= content_tag :span,
+      "Remove",
+      data: {
+        action: "click->booking#removePassenger",
+        booking_passenger_index_param: passenger_field.index,
+      } %>
+    </div>
+  <% end %>
 
   <div data-booking-target="new">
   </div>
