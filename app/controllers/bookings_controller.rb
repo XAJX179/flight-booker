@@ -28,6 +28,8 @@ class BookingsController < ApplicationController
     if @booking.save
       flash[:notice] = "Booked!"
       redirect_to booking_path(@booking)
+      # this is just for learning how to send email
+      PassengerMailer.with(user: @booking.passengers.first).confirmation_mail.deliver_now
     else
       flash[:alert] = "Invalid details. Could not book flight!"
       redirect_to "/flights/index"
